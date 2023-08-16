@@ -1,0 +1,23 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout Scm') {
+      steps {
+        git 'https://github.com/EmilBC/Gouvernance.git'
+      }
+    }
+
+    stage('Batch script 0') {
+      steps {
+        bat 'C:////Users//Administrateur//Downloads//apache-maven-3.9.3-bin//apache-maven-3.9.3//bin//mvn -B -DskipTests clean package'
+      }
+    }
+
+  }
+  post {
+    always {
+      echo 'No converter for Publisher: hudson.plugins.deploy.DeployPublisher'
+    }
+
+  }
+}

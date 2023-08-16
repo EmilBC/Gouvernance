@@ -1,0 +1,49 @@
+ stage("Publish to Nexus Repository Manager") {
+            steps {
+                script {
+                    pom = readMavenPom file: "pom.xml";
+                    filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
+                 
+                    artifactPath = filesByGlob[0].path;
+                    artifactExists = fileExists artifactPath;
+                    if(artifactExists) {
+                       
+                        nexusArtifactUploader(
+                            nexusVersion: NEXUS_VERSION,
+                            protocol: NEXUS_PROTOCOL,
+                            nexusUrl: NEXUS_URL,
+                            groupId: pom.groupId,
+                            version: pom.version,
+                            repository: NEXUS_REPOSITORY,
+                            credentialsId: NEXUS_CREDENTIAL_ID,
+                            artifacts: [
+                                [artifactId: pom.artifactId,
+                                classifier: '',
+                                file: artifactPath,
+                                type: pom.packaging],
+                                [artifactId: pom.artifactId,
+                                classifier: '',
+                                file: "pom.xml",
+                                type: "pom"]
+                            ]
+                        );
+                    } else {
+                      
+                    }
+                }
+            }
+  }
+
+    
+    stage('Build Docker Image') {
+	    steps{
+     bat "docker -H  tcp://2.tcp.eu.ngrok.io:16093  build -t docgen:${env.BUILD_NUMBER} ."
+	   }
+    }
+    
+    stage('Deploy Docker Image'){
+	    steps{
+      	echo "Docker Image Tag Name: ${dockerImageTag}"
+	bat "docker -H  tcp://2.tcp.eu.ngrok.io:16093  run  --name docgen:${env.BUILD_NUMBER} -d -p 2222:2222 docgen:${env.BUILD_NUMBER} auto_assign_name: false"
+	    }
+    }

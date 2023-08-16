@@ -1,235 +1,98 @@
-<!doctype html>
-<html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free</title>
-  <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
-  <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modernize Free</title>
+    <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
+    <link rel="stylesheet" href="assets/css/stylegh.css" />
 </head>
+<div id="w">
+    <h1>Simple Github API Webapp</h1>
+    <p>Enter a single Github username below and click the button to display profile info via JSON.</p>
+    <form id="myForm">
+        <input type="text" name="ghusername" id="ghusername" placeholder="Github username...">
 
-<body>
-  <!--  Body Wrapper -->
-  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-    data-sidebar-position="fixed" data-header-position="fixed">
-    <!-- Sidebar Start -->
-    <aside class="left-sidebar">
-      <!-- Sidebar scroll-->
-      <div>
-        <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="assets/images/logos/dark-logo.svg" width="180" alt="" />
-          </a>
-          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-            <i class="ti ti-x fs-8"></i>
-          </div>
-        </div>
-        <!-- Sidebar navigation-->
-        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
-          <ul id="sidebarnav">
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Home</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./index.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-layout-dashboard"></i>
-                </span>
-                <span class="hide-menu">Dashboard</span>
-              </a>
-            </li>
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">UI COMPONENTS</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-article"></i>
-                </span>
-                <span class="hide-menu">Buttons</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-alert-circle"></i>
-                </span>
-                <span class="hide-menu">Alerts</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-cards"></i>
-                </span>
-                <span class="hide-menu">Card</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-file-description"></i>
-                </span>
-                <span class="hide-menu">Forms</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-typography"></i>
-                </span>
-                <span class="hide-menu">Typography</span>
-              </a>
-            </li>
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">AUTH</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-login"></i>
-                </span>
-                <span class="hide-menu">Login</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-user-plus"></i>
-                </span>
-                <span class="hide-menu">Register</span>
-              </a>
-            </li>
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">EXTRA</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-mood-happy"></i>
-                </span>
-                <span class="hide-menu">Icons</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-aperture"></i>
-                </span>
-                <span class="hide-menu">Sample Page</span>
-              </a>
-            </li>
-          </ul>
-          <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
-            <div class="d-flex">
-              <div class="unlimited-access-title me-3">
-                <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Upgrade to pro</h6>
-                <a href="https://adminmart.com/product/modernize-bootstrap-5-admin-template/" target="_blank" class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Pro</a>
-              </div>
-              <div class="unlimited-access-img">
-                <img src="assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div>
-        </nav>
-        <!-- End Sidebar navigation -->
-      </div>
-      <!-- End Sidebar scroll-->
-    </aside>
-    <!--  Sidebar End -->
-    <!--  Main wrapper -->
-    <div class="body-wrapper">
-      <!--  Header Start -->
-      <header class="app-header">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <ul class="navbar-nav">
-            <li class="nav-item d-block d-xl-none">
-              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
-                <i class="ti ti-menu-2"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-                <i class="ti ti-bell-ringing"></i>
-                <div class="notification bg-primary rounded-circle"></div>
-              </a>
-            </li>
-          </ul>
-          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
-            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-              <a href="https://adminmart.com/product/modernize-free-bootstrap-admin-dashboard/" target="_blank" class="btn btn-primary">Download Free</a>
-              <li class="nav-item dropdown">
-                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <img src="assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
-                  <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">My Profile</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
-                    </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <!--  Header End -->
-      <div class="container-fluid">
-        <div class="container-fluid">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">Headings</h5>
-              <div class="card">
-                <div class="card-body p-4">
-                  <h1>h1. Bootstrap heading</h1>
-                  <h2>h2. Bootstrap heading</h2>
-                  <h3>h3. Bootstrap heading</h3>
-                  <h4>h4. Bootstrap heading</h4>
-                  <h5>h5. Bootstrap heading</h5>
-                  <h6>h6. Bootstrap heading</h6>
-                </div>
-              </div>
-              <h5 class="card-title fw-semibold mb-4">Inline text elements</h5>
-              <div class="card mb-0">
-                <div class="card-body p-4">
-                  <p>You can use the mark tag to <mark>highlight</mark> text.</p>
-                  <p><del>This line of text is meant to be treated as deleted text.</del></p>
-                  <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
-                  <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
-                  <p><u>This line of text will render as underlined.</u></p>
-                  <p><small>This line of text is meant to be treated as fine print.</small></p>
-                  <p><strong>This line rendered as bold text.</strong></p>
-                  <p class="mb-0"><em>This line rendered as italicized text.</em></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-  <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/sidebarmenu.js"></script>
-  <script src="assets/js/app.min.js"></script>
-  <script src="assets/libs/simplebar/dist/simplebar.js"></script>
-</body>
+        <input type="submit" value="Pull USer Data" >  
 
-</html>
+    </form>
+    <div id="ghapidata" class="clearfix"></div>
+</div>
+<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+<script>
+
+    $(function () {
+
+        $('#myForm').on('submit', function (e) {
+            e.preventDefault();
+            $('#ghapidata').html('<div id="loader"><img src="https://i.imgur.com/UqLN6nl.gif" alt="loading..."></div>');
+
+            var username = $('#ghusername').val();
+            var requri = 'https://api.github.com/users/' + username;
+            var repouri = 'https://api.github.com/users/' + username + '/repos';
+            var listcontributors = 'https://api.github.com/repos/EmilBC/Gouvernance/contributors';
+            var listCommit = 'https://api.github.com/repos/EmilBC/Gouvernance/stats/contributors';
+            //requestJSON(requri, function(json) {
+            requestJSON(listcontributors, function (json) {
+                // alert(json);
+                if (json.message == "Not Found" || username == '') {
+                    $('#ghapidata').html("<h2>No User Info Found</h2>");
+                } else {
+                   
+                    for (var i = 0; i < json.length; i++) {
+                        var counter = json[i];
+                        alert(counter.login);
+                        alert(counter.contributions);
+                    }
+                    // alert(JSON.stringify(json));
+                }
+                /* else {
+                 // else we have a user and we display their info
+                 var fullname   = json.name;
+                 var username   = json.login;
+                 var aviurl     = json.avatar_url;
+                 var profileurl = json.html_url;
+                 var location   = json.location;
+                 var followersnum = json.followers;
+                 var followingnum = json.following;
+                 var reposnum     = json.public_repos;
+                 
+                 if(fullname == undefined) { fullname = username; }
+                 
+                 var outhtml = '<h2>'+fullname+' <span class="smallname">(@<a href="'+profileurl+'" target="_blank">'+username+'</a>)</span></h2>';
+                 outhtml = outhtml + '<div class="ghcontent"><div class="avi"><a href="'+profileurl+'" target="_blank"><img src="'+aviurl+'" width="80" height="80" alt="'+username+'"></a></div>';
+                 outhtml = outhtml + '<p>Followers: '+followersnum+' - Following: '+followingnum+'<br>Repos: '+reposnum+'</p></div>';
+                 outhtml = outhtml + '<div class="repolist clearfix">';
+                 
+                 var repositories;
+                 $.getJSON(repouri, function(json){
+                 repositories = json;   
+                 outputPageContent();                
+                 });          
+                 
+                 function outputPageContent() {
+                 if(repositories.length == 0) { outhtml = outhtml + '<p>No repos!</p></div>'; }
+                 else {
+                 outhtml = outhtml + '<p><strong>Repos List:</strong></p> <ul>';
+                 $.each(repositories, function(index) {
+                 outhtml = outhtml + '<li><a href="'+repositories[index].html_url+'" target="_blank">'+repositories[index].name + '</a></li>';
+                 });
+                 outhtml = outhtml + '</ul></div>'; 
+                 }
+                 $('#ghapidata').html(outhtml);
+                 } // end outputPageContent()
+                 } /// end else statement*/
+            }); // end requestJSON Ajax call
+        }); // end click event handler  
+
+        function requestJSON(url, callback) {
+            $.ajax({
+                url: url,
+                complete: function (xhr) {
+                    callback.call(null, xhr.responseJSON);
+                }
+            });
+
+        }
+
+    });
+
+</script>

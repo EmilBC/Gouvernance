@@ -1,0 +1,17 @@
+pipeline {
+  agent any
+  stages {
+    stage('Batch script 0') {
+      steps {
+        bat 'C://Users//Administrateur//Downloads//curl-8.2.1_1-win64-mingw//curl-8.2.1_1-win64-mingw//bin//curl http://10.12.1.254:8081/repository/jarwarrepo/net/javaguides/springmvc/springmvc5/0.0.1-SNAPSHOT/springmvc5-0.0.1-20230815.151520-1.war --output helloworld.war'
+      }
+    }
+
+  }
+  post {
+    always {
+      echo 'No converter for Publisher: hudson.plugins.deploy.DeployPublisher'
+    }
+
+  }
+}

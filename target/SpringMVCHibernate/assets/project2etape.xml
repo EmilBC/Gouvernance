@@ -1,0 +1,96 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1316.vd2290d3341a_f">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2144.v077a_d1928a_40"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2144.v077a_d1928a_40">
+      <jobProperties/>
+      <triggers/>
+      <parameters>
+        <string>PASSWORD</string>
+        <string>DOCKER_IMAGE_NAME</string>
+        <string>BUILD_LANGUAGE</string>
+        <string>USERNAME</string>
+        <string>RUN_SONNAR</string>
+        <string>BUILD_FOR_PRODUCTION</string>
+        <string>CHECK_TEST</string>
+      </parameters>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.37.1">
+      <projectUrl>https://github.com/EmilBC/ReportGen</projectUrl>
+      <displayName></displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.BooleanParameterDefinition>
+          <name>BUILD_FOR_PRODUCTION</name>
+          <description>Check if it&apos;s for prod</description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>BUILD_LANGUAGE</name>
+          <description>Choose your techno, for dev please set default value in your commited file</description>
+          <choices>
+            <string>JAVA</string>
+            <string>NET</string>
+            <string>PHP</string>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>USERNAME</name>
+          <description>db</description>
+          <defaultValue>ebouchebel</defaultValue>
+          <trim>true</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>PASSWORD</name>
+          <description>db</description>
+          <defaultValue>{AQAAABAAAAAQ3xz6wTPP33J51bNu6O4ts125F82I8HEl4joCOq4V6SY=}</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>RUN_SONNAR</name>
+          <description>run sonar or not</description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DOCKER_IMAGE_NAME</name>
+          <description>selectdockerimage</description>
+          <defaultValue>imagetest</defaultValue>
+          <trim>true</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>CHECK_TEST</name>
+          <description>Check if test is ok or not</description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@3717.va_180a_fe9d3cd">
+    <scm class="hudson.plugins.git.GitSCM" plugin="git@5.2.0">
+      <configVersion>2</configVersion>
+      <userRemoteConfigs>
+        <hudson.plugins.git.UserRemoteConfig>
+          <url>https://github.com/EmilBC/ReportGen.git</url>
+          <credentialsId>230353d4-e35e-4fa4-b797-a13a7236746d</credentialsId>
+        </hudson.plugins.git.UserRemoteConfig>
+      </userRemoteConfigs>
+      <branches>
+        <hudson.plugins.git.BranchSpec>
+          <name>*/master</name>
+        </hudson.plugins.git.BranchSpec>
+      </branches>
+      <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+      <submoduleCfg class="empty-list"/>
+      <extensions/>
+    </scm>
+    <scriptPath>Jenkinsfile</scriptPath>
+    <lightweight>true</lightweight>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
